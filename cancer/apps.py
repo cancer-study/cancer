@@ -17,14 +17,14 @@ from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
-from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
+# from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 
 from cancer_subject.apps import AppConfig as BaseCancerSubjectAppConfig
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
-from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
+# from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
@@ -45,8 +45,8 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     protocol_number = '045'
     protocol_name = 'Cancer'
     protocol_title = ''
-    site_code = '45'
-    site_name = 'Gaborone'
+#     site_code = '45'
+#     site_name = 'Gaborone'
     study_open_datetime = datetime(2013, 10, 31, 0, 0, 0, tzinfo=gettz('UTC'))
     study_close_datetime = datetime(2022, 12, 31, 0, 0, 0, tzinfo=gettz('UTC'))
 
@@ -122,9 +122,9 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
     ]
 
 
-class EdcSyncAppConfig(BaseEdcSyncAppConfig):
-    edc_sync_files_using = True
-    role = CENTRAL_SERVER
+# class EdcSyncAppConfig(BaseEdcSyncAppConfig):
+#     edc_sync_files_using = True
+#     role = CENTRAL_SERVER
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
@@ -132,9 +132,9 @@ class EdcLabelAppConfig(BaseEdcLabelAppConfig):
         settings.STATIC_ROOT, 'cancer', 'label_templates')
 
 
-class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
-    edc_sync_files_using = True
-    role = CENTRAL_SERVER
+# class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
+#     edc_sync_files_using = True
+#     role = CENTRAL_SERVER
 
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
