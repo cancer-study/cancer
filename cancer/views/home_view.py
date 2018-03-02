@@ -14,7 +14,7 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
     #     name = 'home'
     #     listboard_template_name = 'cancer/listboard.html'
     #     dashboard_template_name = 'cancer/dashboard.html'
-    #     base_template_name = 'cancer/base.html'
+    base_template_name = 'cancer/base.html'
     #     listboard_url_name = 'cancer:listboard_url'
     #     dashboard_url_name = 'cancer/dashboard_url'
     #     admin_site_name = 'cancer_admin'

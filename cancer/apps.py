@@ -4,6 +4,7 @@ import os
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
+from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.management.color import color_style
 
@@ -30,7 +31,15 @@ from edc_timepoint.timepoint import Timepoint
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
+from cancer.sites import cancer_sites, fqdn
+
 style = color_style()
+
+
+def post_migrate_update_sites(sender=None, **kwargs):
+    from edc_base.sites.utils import add_or_update_django_sites
+    add_or_update_django_sites(
+        apps=django_apps, sites=cancer_sites, fqdn=fqdn)
 
 
 class AppConfig(DjangoAppConfig):
@@ -82,6 +91,11 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
     license = None
 
 
+class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
+    device_role = CENTRAL_SERVER
+    device_id = '99'
+
+
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
     visit_models = {
         'cancer_subject': ('subject_visit', 'cancer_subject.subjectvisit')}
@@ -101,25 +115,25 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     configurations = [
         AppointmentConfig(
             model='edc_appointment.appointment',
-            related_visit_model='ambition_subject.subjectvisit',
+            related_visit_model='cancer_subject.subjectvisit',
             appt_type='hospital')]
 
-
-class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
-    timepoints = [
-        Timepoint(
-            model='cancer_subject.appointment',
-            datetime_field='appt_datetime',
-            status_field='appt_status',
-            closed_status='DONE'
-        ),
-        Timepoint(
-            model='cancer_subject.historicalappointment',
-            datetime_field='appt_datetime',
-            status_field='appt_status',
-            closed_status='DONE'
-        ),
-    ]
+#
+# class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
+#     timepoints = [
+#         Timepoint(
+#             model='cancer_subject.appointment',
+#             datetime_field='appt_datetime',
+#             status_field='appt_status',
+#             closed_status='DONE'
+#         ),
+#         Timepoint(
+#             model='cancer_subject.historicalappointment',
+#             datetime_field='appt_datetime',
+#             status_field='appt_status',
+#             closed_status='DONE'
+#         ),
+#     ]
 
 
 # class EdcSyncAppConfig(BaseEdcSyncAppConfig):
