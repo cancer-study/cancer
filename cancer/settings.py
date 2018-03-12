@@ -26,6 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ETC_DIR = '/etc'
 # ETC_DIR = os.path.join(str(PurePath(BASE_DIR).parent), 'etc')
 
+LOGIN_REDIRECT_URL = 'home_url'
+
+INDEX_PAGE = 'cancer.bhp.org.bw:8000'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -68,6 +72,7 @@ INSTALLED_APPS = [
     'edc_base_test.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_reference.apps.AppConfig',
+    'edc_timepoint.apps.AppConfig',
     'cancer.apps.AppConfig',
     'cancer.apps.EdcBaseAppConfig',
     'cancer_dashboard.apps.AppConfig',
@@ -75,18 +80,14 @@ INSTALLED_APPS = [
     'cancer.apps.EdcMetadataAppConfig',
     'cancer.apps.EdcIdentifierAppConfig',
     'cancer.apps.EdcProtocolAppConfig',
-    'cancer.apps.EdcTimepointAppConfig',
     'cancer.apps.EdcAppointmentAppConfig',
     'cancer.apps.EdcVisitTrackingAppConfig',
     'cancer.apps.CancerSubjectAppConfig',
-    'cancer.apps.EdcSyncAppConfig',
-    'cancer.apps.EdcSyncFilesAppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'cancer_visit_schedule.apps.AppConfig',
-    #     'edc_facility.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'cancer_reference.apps.AppConfig',
 ]
@@ -95,12 +96,12 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'edc_dashboard.middleware.DashboardMiddleware',
-    'edc_lab_dashboard.middleware.DashboardMiddleware',
     'edc_subject_dashboard.middleware.DashboardMiddleware',
 ]
 
@@ -250,11 +251,24 @@ EDC_SYNC_FILES_REMOTE_HOST = None
 EDC_SYNC_FILES_USB_VOLUME = None
 EDC_SYNC_SERVER_IP = None
 
+MAIN_NAVBAR_NAME = APP_NAME
+
+CUPS_SERVERS = {
+    'localhost': None}
+
 DASHBOARD_URL_NAMES = {
     'consent_listboard_url': 'cancer_dashboard:consent_listboard_url',
     'checklist_listboard_url': 'cancer_dashboard:checklist_listboard_url',
     'subject_dashboard_url': 'cancer_dashboard:subject_dashboard_url',
 }
 
-SITE_ID = 1
+DASHBOARD_BASE_TEMPLATES = {
+    'listboard_base_template': 'cancer/base.html',
+    'dashboard_base_template': 'cancer/base.html',
+    'checklist_listboard_template': 'cancer_dashboard/checklist/listboard.html',
+    'subject_listboard_template': 'cancer_dashboard/subject/listboard.html',
+    'subject_dashboard_template': 'cancer_dashboard/subject/dashboard.html',
+}
+
+SITE_ID = 40
 REVIEWER_SITE_ID = 1

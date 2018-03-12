@@ -7,6 +7,7 @@ from django.apps import AppConfig as DjangoAppConfig
 from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.management.color import color_style
+from django.db.models.signals import post_migrate
 
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_base.utils import get_utcnow
@@ -15,7 +16,7 @@ from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
-from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
+# from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 # from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
@@ -26,8 +27,8 @@ from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 # from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
-from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
-from edc_timepoint.timepoint import Timepoint
+# from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
+# from edc_timepoint.timepoint import Timepoint
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
@@ -44,9 +45,9 @@ def post_migrate_update_sites(sender=None, **kwargs):
 
 class AppConfig(DjangoAppConfig):
     name = 'cancer'
-    base_template_name = 'cancer/base.html'
-    dashboard_url_name = 'home_url'
-    listboard_url_name = 'home_url'
+
+    def ready(self):
+        post_migrate.connect(post_migrate_update_sites, sender=self)
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
@@ -64,10 +65,10 @@ class CancerSubjectAppConfig(BaseCancerSubjectAppConfig):
     base_template_name = 'cancer/base.html'
 
 
-class EdcLabDashboardAppConfig(BaseEdcLabDashboardAppConfig):
-    base_template_name = 'bcpp/base.html'
-    namespace = 'edc_lab_dashboard'
-    result_model = 'edc_lab_dashboard.result'
+# class EdcLabDashboardAppConfig(BaseEdcLabDashboardAppConfig):
+#     base_template_name = 'bcpp/base.html'
+#     namespace = 'edc_lab_dashboard'
+#     result_model = 'edc_lab_dashboard.result'
 
 
 class EdcLabAppConfig(BaseEdcLabAppConfig):
