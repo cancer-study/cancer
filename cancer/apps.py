@@ -14,6 +14,7 @@ from edc_base.utils import get_utcnow
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
+from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 # from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
@@ -24,7 +25,6 @@ from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from cancer_subject.apps import AppConfig as BaseCancerSubjectAppConfig
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
-from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 # from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
 # from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
@@ -123,7 +123,7 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
 # class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
 #     timepoints = [
 #         Timepoint(
-#             model='cancer_subject.appointment',
+#             model='edc_appointment.appointment',
 #             datetime_field='appt_datetime',
 #             status_field='appt_status',
 #             closed_status='DONE'

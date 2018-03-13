@@ -66,16 +66,20 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
+    'edc_action_item.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
+    'edc_locator.apps.AppConfig',
+    'edc_offstudy.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
     'edc_base_test.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
+    'edc_prn.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_timepoint.apps.AppConfig',
     'cancer.apps.AppConfig',
     'cancer.apps.EdcBaseAppConfig',
-    'cancer_dashboard.apps.AppConfig',
+    'cancer.apps.EdcFacilityAppConfig',
     'cancer.apps.EdcLabelAppConfig',
     'cancer.apps.EdcMetadataAppConfig',
     'cancer.apps.EdcIdentifierAppConfig',
@@ -83,6 +87,7 @@ INSTALLED_APPS = [
     'cancer.apps.EdcAppointmentAppConfig',
     'cancer.apps.EdcVisitTrackingAppConfig',
     'cancer.apps.CancerSubjectAppConfig',
+    'cancer_dashboard.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
@@ -258,7 +263,7 @@ CUPS_SERVERS = {
 
 DASHBOARD_URL_NAMES = {
     'consent_listboard_url': 'cancer_dashboard:consent_listboard_url',
-    'checklist_listboard_url': 'cancer_dashboard:checklist_listboard_url',
+    'subject_listboard_url': 'cancer_dashboard:checklist_listboard_url',
     'subject_dashboard_url': 'cancer_dashboard:subject_dashboard_url',
 }
 
