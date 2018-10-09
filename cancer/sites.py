@@ -1,5 +1,5 @@
 
-fqdn = 'cancer.clinicedc.org'
+fqdn = 'cancer.bhp.org.bw'
 
 cancer_sites = (
     (40, 'gaborone'),

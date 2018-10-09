@@ -1,19 +1,37 @@
+from django.conf import settings
 from edc_navbar import NavbarItem, site_navbars, Navbar
+from edc_lab_dashboard.dashboard_urls import dashboard_urls as lab_dashboard_urls
 
 cancer = Navbar(name='cancer')
 
 cancer.append_item(
     NavbarItem(
-        name='consented_subject',
-        label='Consents',
-        fa_icon='fa-user-plus',
-        url_name='cancer_dashboard:consent_listboard_url'))
+        name='pharmacy',
+        label='Pharmacy',
+        fa_icon='fa-medkit',
+        url_name=f'home_url'))
+# url_name=f'edc_pharmacy_dashboard:home_url'))
 
 cancer.append_item(
     NavbarItem(
-        name='enrollment_checklist',
-        label='Enrollment Checklist',
-        fa_icon='fa-user-circle-o',
-        url_name='cancer_dashboard:checklist_listboard_url'))
+        name='lab',
+        label='Specimens',
+        fa_icon='fa-flask',
+        url_name=lab_dashboard_urls.get('requisition_listboard_url')))
+
+cancer.append_item(
+    NavbarItem(
+        name='screened_subject',
+        label='Screening',
+        fa_icon='fa-user-plus',
+        url_name=settings.DASHBOARD_URL_NAMES.get('screening_listboard_url')))
+
+cancer.append_item(
+    NavbarItem(
+        name='consented_subject',
+        label='Subjects',
+        fa_icon='far fa-user-circle',
+        url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
+
 
 site_navbars.register(cancer)

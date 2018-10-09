@@ -108,6 +108,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'edc_dashboard.middleware.DashboardMiddleware',
     'edc_subject_dashboard.middleware.DashboardMiddleware',
+    'edc_lab_dashboard.middleware.DashboardMiddleware'
 ]
 
 ROOT_URLCONF = 'cancer.urls'
@@ -261,19 +262,24 @@ MAIN_NAVBAR_NAME = APP_NAME
 CUPS_SERVERS = {
     'localhost': None}
 
+# dashboards
 DASHBOARD_URL_NAMES = {
-    'consent_listboard_url': 'cancer_dashboard:consent_listboard_url',
-    'subject_listboard_url': 'cancer_dashboard:checklist_listboard_url',
+    'subject_models_url': 'subject_models_url',
+    'subject_listboard_url': 'cancer_dashboard:subject_listboard_url',
+    'screening_listboard_url': 'cancer_dashboard:screening_listboard_url',
     'subject_dashboard_url': 'cancer_dashboard:subject_dashboard_url',
 }
+
+LAB_DASHBOARD_URL_NAMES = {}
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'cancer/base.html',
     'dashboard_base_template': 'cancer/base.html',
-    'checklist_listboard_template': 'cancer_dashboard/checklist/listboard.html',
+    'screening_listboard_template': 'cancer_dashboard/screening/listboard.html',
     'subject_listboard_template': 'cancer_dashboard/subject/listboard.html',
     'subject_dashboard_template': 'cancer_dashboard/subject/dashboard.html',
 }
 
 SITE_ID = 40
 REVIEWER_SITE_ID = 1
+COUNTRY = 'botswana'
