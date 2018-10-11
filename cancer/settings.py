@@ -33,15 +33,8 @@ INDEX_PAGE = 'cancer.bhp.org.bw:8000'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-CONFIG_FILE = f'{APP_NAME}.conf'
-CONFIG_PATH = os.path.join(ETC_DIR, APP_NAME, CONFIG_FILE)
-
-sys.stdout.write(style.SUCCESS(f'Reading config from {CONFIG_PATH}\n'))
-
-config = configparser.RawConfigParser()
-config.read(os.path.join(CONFIG_PATH))
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
+SECRET_KEY = '614!=u17sy1x__5psj(7*-q61tc@j-gn5$&+_-sy@psn*4wn&!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -59,14 +52,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'crispy_forms',
     'tz_detect',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
-    'edc_action_item.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_locator.apps.AppConfig',
     'edc_offstudy.apps.AppConfig',
@@ -214,12 +205,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATIC_ROOT = config['django'].get(
-    'static_root', os.path.join(BASE_DIR, APP_NAME, 'static'))
+STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = config['django'].get(
-    'media_root', os.path.join(BASE_DIR, 'media'))
+MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
 
 # if DEBUG:
@@ -228,9 +217,9 @@ MEDIA_URL = '/media/'
 #     KEY_PATH = config['django_crypto_fields'].get('key_path')
 
 GIT_DIR = BASE_DIR
-DEVICE_ID = config['edc_device'].get('device_id', '99')
-DEVICE_ROLE = config['edc_device'].get('role', 'CentralServer')
-LABEL_PRINTER = config['edc_label'].get('label_printer', 'label_printer')
+DEVICE_ID = '99'
+DEVICE_ROLE = 'CentralServer'
+LABEL_PRINTER = 'label_printer'
 
 EDC_LAB_REQUISITION_MODEL = 'cancer_subject.subjectrequisition'
 CORS_ORIGIN_ALLOW_ALL = True
