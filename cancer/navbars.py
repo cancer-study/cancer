@@ -6,14 +6,6 @@ cancer = Navbar(name='cancer')
 
 cancer.append_item(
     NavbarItem(
-        name='pharmacy',
-        label='Pharmacy',
-        fa_icon='fa-medkit',
-        url_name=f'home_url'))
-# url_name=f'edc_pharmacy_dashboard:home_url'))
-
-cancer.append_item(
-    NavbarItem(
         name='lab',
         label='Specimens',
         fa_icon='fa-flask',

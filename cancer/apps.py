@@ -42,9 +42,9 @@ class AppConfig(DjangoAppConfig):
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
-    protocol = 'BHP092'
+    protocol = 'BHP045'
     protocol_name = 'Cancer'
-    protocol_number = '092'
+    protocol_number = '045'
     protocol_title = ''
     study_open_datetime = datetime(
         2016, 12, 31, 0, 0, 0, tzinfo=gettz('UTC'))
@@ -73,7 +73,7 @@ class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
 
 
 class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
-    identifier_prefix = '092'
+    identifier_prefix = '045'
 
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
