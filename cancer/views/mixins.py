@@ -10,7 +10,7 @@ class AppConfigListboardUrlsViewMixin:
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
-            ambition_subject_dashboard_url_name=django_apps.get_app_config(
+            cancer_subject_dashboard_url_name=django_apps.get_app_config(
                 'cancer_subject').dashboard_url_name,
             dashboard_url_name=django_apps.get_app_config(
                 self.dashboard_url_app_label).dashboard_url_name,
