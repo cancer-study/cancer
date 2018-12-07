@@ -81,7 +81,6 @@ INSTALLED_APPS = [
     'edc_timepoint.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
     'cancer_dashboard.apps.AppConfig',
-    #     'cancer_labs.apps.AppConfig',
     'cancer_metadata_rules.apps.AppConfig',
     'cancer_reference.apps.AppConfig',
     'cancer_subject.apps.AppConfig',
