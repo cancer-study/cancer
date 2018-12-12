@@ -19,9 +19,13 @@ from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
+from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
+from edc_appointment.constants import COMPLETE_APPT
 
 from .sites import cancer_sites, fqdn
 from .system_checks import cancer_check
+from edc_timepoint.timepoint_collection import TimepointCollection
+from edc_timepoint.timepoint import Timepoint
 
 
 style = color_style()
@@ -85,7 +89,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     configurations = [
         AppointmentConfig(
-            model='edc_appointment.appointment',
+            model='cancer_subject.appointment',
             related_visit_model='cancer_subject.subjectvisit',
             appt_type='hospital')]
 
@@ -95,3 +99,20 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
     definitions = {
         '5-day clinic': dict(days=[MO, TU, WE, TH, FR],
                              slots=[100, 100, 100, 100, 100])}
+
+
+class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
+
+    timepoints = TimepointCollection(
+        timepoints=[
+            Timepoint(
+                model='cancer_subject.appointment',
+                datetime_field='appt_datetime',
+                status_field='appt_status',
+                closed_status=COMPLETE_APPT),
+            Timepoint(
+                model='cancer_subject.historicalappointment',
+                datetime_field='appt_datetime',
+                status_field='appt_status',
+                closed_status=COMPLETE_APPT)
+        ])

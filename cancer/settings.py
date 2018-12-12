@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
     'edc_prn.apps.AppConfig',
+    'edc_action_item.apps.AppConfig',
     'edc_offstudy.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_form_validators.apps.AppConfig',
@@ -70,7 +71,6 @@ INSTALLED_APPS = [
     'edc_list_data.apps.AppConfig',
     'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
-    'edc_action_item.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_consent.apps.AppConfig',
@@ -78,15 +78,11 @@ INSTALLED_APPS = [
     'edc_locator.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
-    'edc_timepoint.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
     'cancer_dashboard.apps.AppConfig',
     'cancer_metadata_rules.apps.AppConfig',
     'cancer_reference.apps.AppConfig',
-    'cancer_subject.apps.AppConfig',
-    'cancer_subject_validations.apps.AppConfig',
-    'cancer_visit_schedule.apps.AppConfig',
-    'cancer_screening.apps.AppConfig',
+    'cancer.apps.EdcTimepointAppConfig',
     'cancer.apps.EdcAppointmentAppConfig',
     'cancer.apps.EdcBaseAppConfig',
     'cancer.apps.EdcDeviceAppConfig',
@@ -96,6 +92,10 @@ INSTALLED_APPS = [
     'cancer.apps.EdcProtocolAppConfig',
     'cancer.apps.EdcVisitTrackingAppConfig',
     'cancer.apps.EdcFacilityAppConfig',
+    'cancer_subject.apps.AppConfig',
+    'cancer_subject_validations.apps.AppConfig',
+    'cancer_visit_schedule.apps.AppConfig',
+    'cancer_screening.apps.AppConfig',
     'cancer.apps.AppConfig',
 ]
 
@@ -233,6 +233,7 @@ DEVICE_ROLE = 'CentralServer'
 LABEL_PRINTER = 'label_printer'
 
 EDC_LAB_REQUISITION_MODEL = 'cancer_subject.subjectrequisition'
+DEFAULT_APPOINTMENT_MODEL = 'cancer_subject.appointment'
 CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
