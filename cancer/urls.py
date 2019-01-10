@@ -1,4 +1,3 @@
-from cancer_screening.admin_site import cancer_screening_admin
 from cancer_subject.admin_site import cancer_subject_admin
 from django.contrib import admin
 from django.urls.conf import path, include
@@ -26,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
     path('admin/', cancer_subject_admin.urls),
-    path('admin/', cancer_screening_admin.urls),
     path('admin/', edc_lab_admin.urls),
     path('admin/', edc_locator_admin.urls),
     path('admin/', edc_identifier_admin.urls),
@@ -42,7 +40,6 @@ urlpatterns = [
     path('admin/cancer_subject/', RedirectView.as_view(url='admin/cancer_subject/'),
          name='subject_models_url'),
     path('cancer_subject/', include('cancer_subject.urls')),
-    path('cancer_screening/', include('cancer_screening.urls')),
     path('subject/', include('cancer_dashboard.urls')),
     path('appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),

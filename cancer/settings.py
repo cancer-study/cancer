@@ -95,7 +95,6 @@ INSTALLED_APPS = [
     'cancer_subject.apps.AppConfig',
     'cancer_subject_validations.apps.AppConfig',
     'cancer_visit_schedule.apps.AppConfig',
-    'cancer_screening.apps.AppConfig',
     'cancer.apps.AppConfig',
 ]
 
