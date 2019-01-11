@@ -15,13 +15,6 @@ cancer.append_item(
 
 cancer.append_item(
     NavbarItem(
-        name='screened_subject',
-        label='Screening',
-        fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('screening_listboard_url')))
-
-cancer.append_item(
-    NavbarItem(
         name='lab',
         label='Specimens',
         fa_icon='fa-flask',
