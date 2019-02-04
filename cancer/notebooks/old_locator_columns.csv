@@ -1,0 +1,2 @@
+,0,1
+0,cancer_subject_locator,"['subject_visit_id', 'alt_contact_tel', 'contact_cell', 'local_clinic', 'may_follow_up', 'may_sms_follow_up', 'contact_name', 'registered_subject_id', 'has_alt_contact', 'alt_contact_rel', 'may_contact_someone', 'contact_rel', 'contact_physical_address', 'other_alt_contact_cell', 'home_visit_permission', 'alt_contact_cell', 'contact_phone', 'home_village', 'alt_contact_name', 'date_signed', 'alt_contact_cell_number']"

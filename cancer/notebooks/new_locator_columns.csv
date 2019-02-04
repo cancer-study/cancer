@@ -1,0 +1,2 @@
+,0,1
+0,edc_locator_subjectlocator,"['may_sms', 'tracking_identifier', 'may_contact_indirectly', 'consent_model', 'indirect_contact_phone', 'may_call', 'indirect_contact_physical_address', 'indirect_contact_name', 'device_created', 'subject_work_cell', 'action_identifier', 'site_id', 'indirect_contact_relation', 'indirect_contact_cell_alt', 'parent_tracking_identifier', 'may_visit_home', 'device_modified', 'indirect_contact_cell', 'subject_identifier', 'consent_version', 'related_tracking_identifier']"
