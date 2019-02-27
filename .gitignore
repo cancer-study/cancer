@@ -7,7 +7,7 @@ __pycache__/
 *.pydevproject
 db.sqlite3-journal
 .DS_Store
-.project
+*.project
 .pydevproject
 .settings
 *migrations
