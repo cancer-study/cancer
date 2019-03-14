@@ -1,7 +1,0 @@
-,0,1
-0,cancer_subject_baseriskassessment,['participant_interviewed']
-1,cancer_subject_oncologytreatmentplan,['radiation_treatments']
-2,cancer_subject_otrradiation,"['concomitant', 'amount_radiation']"
-3,cancer_subject_referral,['registered_subject_id']
-4,cancer_subject_subjectconsent,"['registered_subject_id', 'consent_version_recent', 'consent_version_on_entry', 'study_site_id', 'original_identifier']"
-5,cancer_subject_subjectoffstudy,"['subject_visit_id', 'registered_subject_id', 'offstudy_date', 'reason', 'reason_other', 'has_scheduled_data']"
