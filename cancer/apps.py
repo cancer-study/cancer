@@ -21,6 +21,7 @@ from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_appointment.constants import COMPLETE_APPT
+from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 
 from .sites import cancer_sites, fqdn
 from .system_checks import cancer_check
@@ -103,6 +104,10 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
     definitions = {
         '5-day clinic': dict(days=[MO, TU, WE, TH, FR],
                              slots=[100, 100, 100, 100, 100])}
+
+class EdcLocatorAppConfig(BaseEdcLocatorAppConfig):
+    name = 'edc_locator'
+    reference_model = 'cancer_subject.subjectlocator'
 
 
 class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
