@@ -46,6 +46,7 @@ git+https://github.com/botswana-harvard/edc-subject-dashboard.git@develop#egg=ed
 git+https://github.com/botswana-harvard/edc-sync-files.git@develop#egg=edc_sync_files
 git+https://github.com/botswana-harvard/edc-sync.git@develop#egg=edc_sync
 git+https://github.com/botswana-harvard/edc-reports@develop#egg=edc_reports
+git+https://github.com/botswana-harvard/edc-death-report.git
 python-memcached
 django-tz-detect
 pandas

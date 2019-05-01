@@ -14,7 +14,6 @@ import sys
 
 from django.core.management.color import color_style
 
-
 style = color_style()
 
 APP_NAME = 'cancer'
@@ -39,7 +38,6 @@ SECRET_KEY = '614!=u17sy1x__5psj(7*-q61tc@j-gn5$&+_-sy@psn*4wn&!'
 DEBUG = True
 
 ALLOWED_HOSTS = ['cancer-test.bhp.org.bw', 'localhost', '127.0.0.1']
-
 
 # Application definition
 
@@ -78,6 +76,7 @@ INSTALLED_APPS = [
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
+    'edc_death_report.apps.AppConfig',
     'cancer_dashboard.apps.AppConfig',
     'cancer_metadata_rules.apps.AppConfig',
     'cancer_reference.apps.AppConfig',
@@ -94,6 +93,7 @@ INSTALLED_APPS = [
     'cancer_subject.apps.AppConfig',
     'cancer_subject_validations.apps.AppConfig',
     'cancer_visit_schedule.apps.AppConfig',
+    'cancer_prn.apps.AppConfig',
     'cancer.apps.AppConfig',
 ]
 
@@ -131,25 +131,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
+#         },
+#     },
+# }
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
@@ -170,7 +169,7 @@ if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
         "cancer_subject": None}
 
 if 'test' in sys.argv:
-    PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher', )
+    PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher',)
     DEFAULT_FILE_STORAGE = 'inmemorystorage.InMemoryStorage'
 
 # Password validation
@@ -191,7 +190,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -201,7 +199,6 @@ LANGUAGES = (
     ('tn', 'Setswana'),
     ('en', 'English'))
 
-
 TIME_ZONE = 'Africa/Gaborone'
 
 USE_I18N = True
@@ -209,7 +206,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
