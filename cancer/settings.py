@@ -75,7 +75,6 @@ INSTALLED_APPS = [
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
-    'edc_death_report.apps.AppConfig',
     'cancer_dashboard.apps.AppConfig',
     'cancer_metadata_rules.apps.AppConfig',
     'cancer_reference.apps.AppConfig',
