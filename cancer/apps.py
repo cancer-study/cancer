@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
@@ -8,6 +9,7 @@ from django.core.management.color import color_style
 from django.db.models.signals import post_migrate
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
+from edc_appointment.constants import COMPLETE_APPT
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
@@ -15,18 +17,17 @@ from edc_device.constants import CENTRAL_SERVER
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
+from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
+from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
+from edc_timepoint.timepoint import Timepoint
+from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
-from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
-from edc_appointment.constants import COMPLETE_APPT
-from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 
 from .sites import cancer_sites, fqdn
 from .system_checks import cancer_check
-from edc_timepoint.timepoint_collection import TimepointCollection
-from edc_timepoint.timepoint import Timepoint
 
 
 style = color_style()
@@ -90,6 +91,15 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
     create_on_reasons = [SCHEDULED, UNSCHEDULED] + other_visit_reasons
     delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY]
 
+#     reason_field = {'cancer_subject.subjectvisit': 'reason'}
+#     other_visit_reasons = [
+#         'off study', 'deferred', 'Lost to follow-up', 'Death',
+#         'Missed quarterly visit']
+#     other_create_visit_reasons = [
+#         'Quarterly visit/contact', 'Unscheduled visit/contact']
+#     create_on_reasons = [SCHEDULED, UNSCHEDULED] + other_create_visit_reasons
+#     delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY] + other_visit_reasons
+
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     configurations = [
@@ -104,6 +114,7 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
     definitions = {
         '5-day clinic': dict(days=[MO, TU, WE, TH, FR],
                              slots=[100, 100, 100, 100, 100])}
+
 
 class EdcLocatorAppConfig(BaseEdcLocatorAppConfig):
     name = 'edc_locator'
