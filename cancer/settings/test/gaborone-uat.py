@@ -1,7 +1,7 @@
 from .base_test import *
 
 # site is gaborone
-SITE_ID = 10
+SITE_ID = 40
 
 WSGI_APPLICATION = 'cancer.wsgi.gaborone-uat.application'
 

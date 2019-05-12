@@ -1,14 +1,14 @@
 from .base_test import *
 
-# site is francistown
-SITE_ID = 60
+# site is gaborone
+SITE_ID = 1
 
-WSGI_APPLICATION = 'cancer.wsgi.francistown-uat.application'
+WSGI_APPLICATION = 'cancer.wsgi.reviewer-uat.application'
 
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'francistown.uat.cancer.bhp.org.bw']
+    'reviewer.uat.cancer.bhp.org.bw']
 
 DATABASES = {
     'default': {
@@ -18,3 +18,5 @@ DATABASES = {
         },
     },
 }
+
+TIME_ZONE = 'Africa/Gaborone'
