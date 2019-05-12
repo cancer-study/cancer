@@ -8,7 +8,7 @@ SOURCE_ROOT = str(Path(os.path.dirname(os.path.abspath(__file__))).parent)
 errorlog = os.path.join(
     SOURCE_ROOT, 'log/cancer-uat-reviewer-gunicorn-error.log')
 accesslog = os.path.join(
-    SOURCE_ROOT, 'log/cancer-uat-reviewer-gunicorn-access.log')
+    SOURCE_ROOT, 'log/cancer-uat-reviewer    -gunicorn-access.log')
 loglevel = 'debug'
 pidfile = os.path.join(SOURCE_ROOT, 'run/cancer-uat-reviewer.pid')
 
