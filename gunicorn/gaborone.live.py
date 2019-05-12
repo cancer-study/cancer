@@ -14,4 +14,4 @@ workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
 raw_env = [f'DJANGO_SETTINGS_MODULE=cancer.settings.live.gaborone']
 
-bind = "127.0.0.1:9020"
+bind = "127.0.0.1:9040"
