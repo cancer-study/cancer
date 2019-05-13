@@ -11,16 +11,16 @@ LIVE_SYSTEM = 'LIVE'
 KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 AUTO_CREATE_KEYS = False
 
-MYSQL_DIR = os.path.join('/etc', APP_NAME, 'live', 'mysql.conf')
-
 with open(os.path.join(ETC_DIR, 'secret_key')) as f:
     SECRET_KEY = f.read().strip()
+
+MYSQL_DIR = os.path.join('/etc', APP_NAME, 'live')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': MYSQL_DIR,
+            'read_default_file': os.path.join(MYSQL_DIR, 'mysql.conf'),
         },
     },
 }
