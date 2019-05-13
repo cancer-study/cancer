@@ -12,6 +12,6 @@ pidfile = os.path.join(SOURCE_ROOT, 'run/cancer-francistown.pid')
 
 workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
-raw_env = [f'DJANGO_SETTINGS_MODULE=cancer.settings.live.francistown']
+raw_env = ['DJANGO_SETTINGS_MODULE=cancer.settings.live.francistown']
 
 bind = "127.0.0.1:9060"
