@@ -8,4 +8,5 @@ WSGI_APPLICATION = 'cancer.wsgi.francistown.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
+    'cancer-live.bhp.org.bw',
     'francistown.cancer.bhp.org.bw']

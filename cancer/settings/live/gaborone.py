@@ -8,4 +8,5 @@ WSGI_APPLICATION = 'cancer.wsgi.gaborone.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
+    'cancer-live.bhp.org.bw',
     'gaborone.cancer.bhp.org.bw']
