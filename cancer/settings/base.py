@@ -247,7 +247,7 @@ REST_FRAMEWORK = {
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 COUNTRY = 'botswana'
-HOLIDAY_FILE = os.path.join(BASE_DIR, APP_NAME, 'holidays.csv')
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 
 EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USER = None
