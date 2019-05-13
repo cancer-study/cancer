@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'simple_history',
     'corsheaders',
     'rest_framework',
+    'django_js_reverse',
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
     'edc_prn.apps.AppConfig',
