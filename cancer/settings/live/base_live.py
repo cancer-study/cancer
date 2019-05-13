@@ -16,13 +16,22 @@ with open(os.path.join(ETC_DIR, 'secret_key')) as f:
 
 MYSQL_DIR = os.path.join('/etc', APP_NAME, 'live')
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': os.path.join(MYSQL_DIR, 'mysql.conf'),
+#         },
+#     },
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': os.path.join(MYSQL_DIR, 'mysql.conf'),
+            'read_default_file': '/etc/cancer/live/mysql.conf',
         },
-    },
+    }
 }
 
 INDEX_PAGE = 'https://cancer.bhp.org.bw'
