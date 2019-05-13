@@ -3,7 +3,7 @@ fqdn = 'cancer.bhp.org.bw'
 
 cancer_sites = (
     (40, 'gaborone'),
-    (60, 'francistown')
+    (60, 'francistown'),
     (1, 'reviewer')
 )
 
