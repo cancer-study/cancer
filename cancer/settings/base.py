@@ -18,6 +18,12 @@ style = color_style()
 
 APP_NAME = 'cancer'
 
+REVIEWER_SITE_ID = 1
+
+MYSQL_DIR = os.path.join('/etc', APP_NAME, 'mysql.conf')
+
+LOGIN_REDIRECT_URL = 'home_url'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,7 +38,7 @@ INDEX_PAGE = 'cancer.bhp.org.bw:8000'
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '614!=u17sy1x__5psj(7*-q61tc@j-gn5$&+_-sy@psn*4wn&!'
+SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,6 +61,7 @@ INSTALLED_APPS = [
     'simple_history',
     'corsheaders',
     'rest_framework',
+    'django_js_reverse',
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
     'edc_prn.apps.AppConfig',
@@ -241,7 +248,7 @@ REST_FRAMEWORK = {
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 COUNTRY = 'botswana'
-HOLIDAY_FILE = os.path.join(BASE_DIR, APP_NAME, 'holidays.csv')
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 
 EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USER = None
