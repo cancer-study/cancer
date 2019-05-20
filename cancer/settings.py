@@ -13,6 +13,7 @@ import os
 import sys
 
 from django.core.management.color import color_style
+from .sites import get_site_id
 
 style = color_style()
 
@@ -32,16 +33,81 @@ ETC_DIR = '/etc'
 
 LOGIN_REDIRECT_URL = 'home_url'
 
-INDEX_PAGE = 'cancer.bhp.org.bw:8000'
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
+SITE_ID = get_site_id('gaborone')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+if not DEBUG:
+
+    ETC_DIR = os.path.join('/etc', APP_NAME, 'live')
+    
+    LIVE_SYSTEM = 'LIVE'
+    KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+    AUTO_CREATE_KEYS = False
+    
+    with open(os.path.join(ETC_DIR, 'secret_key')) as f:
+        SECRET_KEY = f.read().strip()
+    
+    MYSQL_DIR = os.path.join('/etc', APP_NAME, 'live')
+    
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'OPTIONS': {
+                'read_default_file': os.path.join(MYSQL_DIR, 'mysql.conf'),
+            },
+        },
+    }
+    
+    INDEX_PAGE = 'https://cancer-live.bhp.org.bw'
+    
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': 'unix:/tmp/memcached.sock',
+        }
+    }
+    SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+    
+    STATIC_ROOT = os.path.expanduser('~/static/live/')
+else:
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/1.10/howto/static-files/
+    STATIC_ROOT = 'static'
+    STATIC_URL = '/static/'
+    
+    MEDIA_ROOT = 'media'
+    MEDIA_URL = '/media/'
+    INDEX_PAGE = 'localhost:8000'
+
+    # Quick-start development settings - unsuitable for production
+    # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
+    
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
+    # Database
+    # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+    
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.sqlite3',
+    #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #     }
+    # }
+    
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'OPTIONS': {
+                'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
+            },
+        },
+    }
+
 
 ALLOWED_HOSTS = ['cancer-test.bhp.org.bw', 'localhost', '127.0.0.1']
 
@@ -137,24 +203,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
-        },
-    },
-}
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
@@ -213,18 +261,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATIC_ROOT = 'static'
-STATIC_URL = '/static/'
-
-MEDIA_ROOT = 'media'
-MEDIA_URL = '/media/'
-
-# if DEBUG:
-#     KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
-# else:
-#     KEY_PATH = config['django_crypto_fields'].get('key_path')
 
 GIT_DIR = BASE_DIR
 DEVICE_ID = '99'
@@ -280,7 +316,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_dashboard_template': 'cancer_dashboard/subject/dashboard.html',
 }
 
-SITE_ID = 40
-REVIEWER_SITE_ID = 1
+SITE_ID = '040'
+REVIEWER_SITE_ID = '1'
 PARENT_REFERENCE_MODEL1 = None
 PARENT_REFERENCE_MODEL2 = None
