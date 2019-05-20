@@ -83,22 +83,15 @@ class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
 
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
+
     reason_field = {'cancer_subject.subjectvisit': 'reason'}
     other_visit_reasons = [
-        'off study', 'deferred', 'Lost to follow-up',
-        'Quarterly visit/contact', 'Death',
-        'Missed quarterly visit', 'Unscheduled visit/contact']
-    create_on_reasons = [SCHEDULED, UNSCHEDULED] + other_visit_reasons
-    delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY]
-
-#     reason_field = {'cancer_subject.subjectvisit': 'reason'}
-#     other_visit_reasons = [
-#         'off study', 'deferred', 'Lost to follow-up', 'Death',
-#         'Missed quarterly visit']
-#     other_create_visit_reasons = [
-#         'Quarterly visit/contact', 'Unscheduled visit/contact']
-#     create_on_reasons = [SCHEDULED, UNSCHEDULED] + other_create_visit_reasons
-#     delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY] + other_visit_reasons
+        'off study', 'deferred', 'Lost to follow-up', 'Death',
+        'Missed quarterly visit']
+    other_create_visit_reasons = [
+        'Quarterly visit/contact', 'Unscheduled visit/contact']
+    create_on_reasons = [SCHEDULED, UNSCHEDULED] + other_create_visit_reasons
+    delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY] + other_visit_reasons
 
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
