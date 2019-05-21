@@ -110,7 +110,7 @@ else:
     }
 
 
-ALLOWED_HOSTS = ['cancer-test.bhp.org.bw', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['cancer-live.bhp.org.bw', 'localhost', '127.0.0.1']
 
 # Application definition
 
