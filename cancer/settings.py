@@ -36,7 +36,7 @@ LOGIN_REDIRECT_URL = 'home_url'
 SITE_ID = get_site_id('gaborone')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 if not DEBUG:
 
