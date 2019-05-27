@@ -13,7 +13,10 @@ import os
 import sys
 
 from django.core.management.color import color_style
+
+from .logging import LOGGING
 from .sites import get_site_id
+
 
 style = color_style()
 

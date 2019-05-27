@@ -1,7 +1,9 @@
 # see http://www.simonkrueger.com/2015/05/27/logging-django-apps-to-syslog.html
 import os
 
-from .settings import APP_NAME, BASE_DIR
+APP_NAME = 'cancer'
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 LOGGING = {
     'version': 1,
