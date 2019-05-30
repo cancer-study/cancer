@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import sys
 
+
 from django.core.management.color import color_style
 from .sites import get_site_id
 
@@ -98,7 +99,7 @@ else:
     #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     #     }
     # }
-    
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -317,6 +318,7 @@ DASHBOARD_BASE_TEMPLATES = {
 }
 
 SITE_ID = '040'
+SITE_IDS = ['040', '060']
 REVIEWER_SITE_ID = '1'
 PARENT_REFERENCE_MODEL1 = None
 PARENT_REFERENCE_MODEL2 = None
