@@ -14,7 +14,10 @@ import sys
 
 
 from django.core.management.color import color_style
+
+from .logging import LOGGING
 from .sites import get_site_id
+
 
 style = color_style()
 
@@ -42,16 +45,16 @@ DEBUG = False
 if not DEBUG:
 
     ETC_DIR = os.path.join('/etc', APP_NAME, 'live')
-    
+
     LIVE_SYSTEM = 'LIVE'
     KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
     AUTO_CREATE_KEYS = False
-    
+
     with open(os.path.join(ETC_DIR, 'secret_key')) as f:
         SECRET_KEY = f.read().strip()
-    
+
     MYSQL_DIR = os.path.join('/etc', APP_NAME, 'live')
-    
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -60,12 +63,12 @@ if not DEBUG:
             },
         },
     }
-    
+
     INDEX_PAGE = 'https://cancer-live.bhp.org.bw'
-    
+
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    
+
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
@@ -73,26 +76,27 @@ if not DEBUG:
         }
     }
     SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
-    
+
     STATIC_ROOT = os.path.expanduser('~/static/live/')
+    STATIC_URL = os.path.expanduser('/static/')
 else:
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/1.10/howto/static-files/
     STATIC_ROOT = 'static'
     STATIC_URL = '/static/'
-    
+
     MEDIA_ROOT = 'media'
     MEDIA_URL = '/media/'
     INDEX_PAGE = 'localhost:8000'
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-    
+
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
     # Database
     # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-    
+
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.sqlite3',
@@ -110,7 +114,7 @@ else:
     }
 
 
-ALLOWED_HOSTS = ['cancer-test.bhp.org.bw', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['cancer-live.bhp.org.bw', 'localhost', '127.0.0.1']
 
 # Application definition
 
