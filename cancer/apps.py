@@ -74,6 +74,7 @@ class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
 
 
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
+    report_datetime_allowance = -1
     visit_models = {
         'cancer_subject': ('subject_visit', 'cancer_subject.subjectvisit')}
 
