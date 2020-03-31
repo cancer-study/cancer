@@ -1,8 +1,8 @@
 git+https://github.com/cancer-study/cancer-dashboard.git@0.1.3#egg=cancer-dashboard
 git+https://github.com/cancer-study/cancer-metadata-rules.git@0.1.10#egg=cancer-metadata-rules
 git+https://github.com/cancer-study/cancer-reference.git@0.1.1#egg=cancer-reference
-git+https://github.com/cancer-study/cancer-subject.git@0.1.6#egg=cancer-subject
-git+https://github.com/cancer-study/cancer-subject-validations.git@0.1.3#egg=cancer-subject-validations
+git+https://github.com/cancer-study/cancer-subject.git@0.1.7#egg=cancer-subject
+git+https://github.com/cancer-study/cancer-subject-validations.git@0.1.4#egg=cancer-subject-validations
 git+https://github.com/cancer-study/cancer-visit-schedule.git@0.1.1#egg=cancer-visit-schedule
 git+https://github.com/cancer-study/cancer-prn.git@0.1.0#egg=cancer-prn
 git+https://github.com/botswana-harvard/edc-action-item.git@0.1.2#egg=edc-action-item
