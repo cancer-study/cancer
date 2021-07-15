@@ -1,4 +1,4 @@
-git+https://github.com/cancer-study/cancer-dashboard.git@0.1.2#egg=cancer-dashboard
+git+https://github.com/cancer-study/cancer-dashboard.git@0.1.4#egg=cancer-dashboard
 git+https://github.com/cancer-study/cancer-metadata-rules.git@0.1.9#egg=cancer-metadata-rules
 git+https://github.com/cancer-study/cancer-reference.git@0.1.1#egg=cancer-reference
 git+https://github.com/cancer-study/cancer-subject.git@0.1.1#egg=cancer-subject
@@ -40,6 +40,6 @@ git+https://github.com/botswana-harvard/edc-reference.git@0.1.9#egg=edc-referenc
 git+https://github.com/botswana-harvard/edc-search.git@0.1.5#egg=edc-search
 git+https://github.com/botswana-harvard/edc-metadata-rules.git@0.1.8#egg=edc-metadata-rules
 git+https://github.com/botswana-harvard/edc-model-wrapper.git@0.1.7#egg=edc-model-wrapper
-git+https://github.com/botswana-harvard/edc-subject-dashboard.git@0.1.5#egg=edc-subject-dashboard
+git+https://github.com/botswana-harvard/edc-subject-dashboard.git@0.2.3#egg=edc-subject-dashboard
 git+https://github.com/botswana-harvard/edc-sync-files.git@0.1.9#egg=edc-sync-files
 git+https://github.com/botswana-harvard/edc-sync.git@0.2.9#egg=edc-sync

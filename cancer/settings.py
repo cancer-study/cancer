@@ -12,12 +12,10 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import sys
 
-
 from django.core.management.color import color_style
 
-from .logging import LOGGING
+# from .logging import LOGGING
 from .sites import get_site_id
-
 
 style = color_style()
 
@@ -40,7 +38,7 @@ LOGIN_REDIRECT_URL = 'home_url'
 SITE_ID = get_site_id('gaborone')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 if not DEBUG:
 
@@ -97,22 +95,21 @@ else:
     # Database
     # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #     }
-    # }
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         }
+#     }
 
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'OPTIONS': {
-                'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
+                'read_default_file': '/etc/cancer/mysql.conf',
             },
         },
     }
-
 
 ALLOWED_HOSTS = ['cancer-live.bhp.org.bw', 'localhost', '127.0.0.1']
 
@@ -167,6 +164,7 @@ INSTALLED_APPS = [
     'cancer.apps.EdcProtocolAppConfig',
     'cancer.apps.EdcVisitTrackingAppConfig',
     'cancer.apps.EdcFacilityAppConfig',
+    'cancer.apps.EdcDataManagerAppConfig',
     'cancer_subject.apps.AppConfig',
     'cancer_subject_validations.apps.AppConfig',
     'cancer_visit_schedule.apps.AppConfig',
@@ -207,7 +205,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
-
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
@@ -266,7 +263,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 GIT_DIR = BASE_DIR
 DEVICE_ID = '99'
 DEVICE_ROLE = 'CentralServer'
@@ -309,6 +305,7 @@ DASHBOARD_URL_NAMES = {
     'subject_listboard_url': 'cancer_dashboard:subject_listboard_url',
     'screening_listboard_url': 'cancer_dashboard:screening_listboard_url',
     'subject_dashboard_url': 'cancer_dashboard:subject_dashboard_url',
+    'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -319,6 +316,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'screening_listboard_template': 'cancer_dashboard/screening/listboard.html',
     'subject_listboard_template': 'cancer_dashboard/subject/listboard.html',
     'subject_dashboard_template': 'cancer_dashboard/subject/dashboard.html',
+    'data_manager_listboard_template': 'edc_data_manager/listboard.html',
 }
 
 SITE_ID = '040'
