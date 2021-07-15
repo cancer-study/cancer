@@ -12,6 +12,7 @@ from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.constants import COMPLETE_APPT
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_constants.constants import FAILED_ELIGIBILITY
+from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
@@ -25,6 +26,7 @@ from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
+from cancer_dashboard.patterns import subject_identifier
 
 from .sites import cancer_sites, fqdn
 from .system_checks import cancer_check
@@ -55,7 +57,7 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     study_open_datetime = datetime(
         2010, 5, 2, 0, 0, 0, tzinfo=gettz('UTC'))
     study_close_datetime = datetime(
-        2019, 12, 31, 23, 59, 59, tzinfo=gettz('UTC'))
+        2021, 12, 31, 23, 59, 59, tzinfo=gettz('UTC'))
 
 
 class EdcLabAppConfig(BaseEdcLabAppConfig):
@@ -130,3 +132,18 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
                 status_field='appt_status',
                 closed_status=COMPLETE_APPT)
         ])
+
+
+class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
+    identifier_pattern = subject_identifier
+    extra_assignee_choices = {
+        'td_clinic': [
+                ('cancer_clinic', 'Cancer Clinic'),
+                ['inkele@bhp.org.bw', 'ojohn@bhp.org.bw', 'scott_peterson@post.harvard.edu']],
+            'td_ras': [
+                ('cancer_ras', 'Cancer RAs'),
+                ['gmotswetla@bhp.org.bw', 'bmotladiile@bhp.org.bw']],
+            'se_dmc': [
+                ('se_dmc', 'SE & DMC'),
+                ['adiphoko@bhp.org.bw', 'ckgathi@bhp.org.bw', 'imosweu@bhp.org.bw']]
+    }
