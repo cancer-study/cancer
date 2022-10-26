@@ -11,7 +11,7 @@ from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.constants import COMPLETE_APPT
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
-from edc_constants.constants import FAILED_ELIGIBILITY
+from edc_constants.constants import FAILED_ELIGIBILITY, OFF_STUDY
 from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
@@ -89,10 +89,9 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
     reason_field = {'cancer_subject.subjectvisit': 'reason'}
     other_visit_reasons = [
-        'off study', 'deferred', 'Lost to follow-up', 'Death',
-        'Missed quarterly visit']
+        'deferred', 'Lost to follow-up', 'Death', 'Missed quarterly visit']
     other_create_visit_reasons = [
-        'Quarterly visit/contact', 'Unscheduled visit/contact']
+        'Quarterly visit/contact', 'Unscheduled visit/contact', OFF_STUDY]
     create_on_reasons = [SCHEDULED, UNSCHEDULED] + other_create_visit_reasons
     delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY] + other_visit_reasons
 
