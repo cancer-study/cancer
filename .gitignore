@@ -82,3 +82,4 @@ target/
 *.key
 *keys
 gunicorn.pid
+.idea/*
