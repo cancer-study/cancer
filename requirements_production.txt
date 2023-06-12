@@ -1,14 +1,14 @@
 git+https://github.com/cancer-study/cancer-dashboard.git@0.1.8#egg=cancer-dashboard
 git+https://github.com/cancer-study/cancer-metadata-rules.git@0.1.10#egg=cancer-metadata-rules
 git+https://github.com/cancer-study/cancer-reference.git@0.1.1#egg=cancer-reference
-git+https://github.com/cancer-study/cancer-subject.git@0.1.14#egg=cancer-subject
+git+https://github.com/cancer-study/cancer-subject.git@0.1.15#egg=cancer-subject
 git+https://github.com/cancer-study/cancer-subject-validations.git@0.1.4#egg=cancer-subject-validations
 git+https://github.com/cancer-study/cancer-visit-schedule.git@0.1.1#egg=cancer-visit-schedule
-git+https://github.com/cancer-study/cancer-prn.git@0.1.1#egg=cancer-prn
+git+https://github.com/cancer-study/cancer-prn.git@0.1.2#egg=cancer-prn
 git+https://github.com/botswana-harvard/edc-action-item.git@0.1.2#egg=edc-action-item
 git+https://github.com/botswana-harvard/edc-appointment.git@0.2.13#egg=edc-appointment
 git+https://github.com/botswana-harvard/edc-base.git@0.2.24#egg=edc-base
-git+https://github.com/botswana-harvard/edc-consent.git@0.2.10#egg=edc-consent
+git+https://github.com/botswana-harvard/edc-consent.git@0.2.12#egg=edc-consent
 git+https://github.com/botswana-harvard/edc-constants.git@0.2.8#egg=edc-constants
 git+https://github.com/botswana-harvard/edc-dashboard.git@0.3.1#egg=edc-dashboard
 git+https://github.com/botswana-harvard/edc-device.git@0.2.6#egg=edc-device
